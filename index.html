@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ITT420 - Pro Study App</title>
+    <title>ITT420 - Pro Study App (Full Exam)</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
         :root {
@@ -20,164 +20,26 @@
             --bg-card: #ffffff;
             --border-radius: 12px;
         }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-
-        body {
-            background-color: var(--bg-body);
-            color: var(--text-main);
-            line-height: 1.6;
-        }
-
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        header {
-            text-align: center;
-            margin-bottom: 30px;
-            padding: 20px;
-            background: var(--bg-card);
-            border-radius: var(--border-radius);
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-        }
-
-        h1 {
-            color: var(--primary);
-            font-size: 1.8rem;
-            margin-bottom: 10px;
-        }
-
-        .nav-tabs {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            margin-bottom: 20px;
-            flex-wrap: wrap;
-        }
-
-        .tab-btn {
-            padding: 10px 20px;
-            border: none;
-            background-color: var(--secondary);
-            color: var(--text-main);
-            border-radius: 8px;
-            cursor: pointer;
-            font-size: 1rem;
-            font-weight: 600;
-            transition: all 0.3s ease;
-        }
-
-        .tab-btn.active, .tab-btn:hover {
-            background-color: var(--primary);
-            color: white;
-        }
-
-        .section {
-            display: none;
-            background: var(--bg-card);
-            padding: 20px;
-            border-radius: var(--border-radius);
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-            animation: fadeIn 0.4s ease-in-out;
-        }
-
-        .section.active {
-            display: block;
-        }
-
-        .chapter-selector {
-            margin-bottom: 20px;
-            text-align: center;
-        }
-        
-        .chapter-selector select {
-            padding: 10px;
-            border-radius: 8px;
-            border: 1px solid #ccc;
-            font-size: 1rem;
-            outline: none;
-            cursor: pointer;
-        }
-
-        /* Flashcards */
-        .flashcard-container {
-            perspective: 1000px;
-            margin: 20px auto;
-            width: 100%;
-            height: 300px;
-            max-width: 500px;
-        }
-
-        .flashcard {
-            width: 100%;
-            height: 100%;
-            position: relative;
-            transition: transform 0.6s;
-            transform-style: preserve-3d;
-            cursor: pointer;
-        }
-
-        .flashcard.flipped {
-            transform: rotateY(180deg);
-        }
-
-        .flashcard-front, .flashcard-back {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            backface-visibility: hidden;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-            border-radius: var(--border-radius);
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            text-align: center;
-        }
-
-        .flashcard-front {
-            background-color: var(--primary);
-            color: white;
-            font-size: 1.5rem;
-            font-weight: bold;
-        }
-
-        .flashcard-back {
-            background-color: white;
-            color: var(--text-main);
-            transform: rotateY(180deg);
-            border: 2px solid var(--primary);
-            font-size: 1.1rem;
-            overflow-y: auto;
-        }
-
-        .flashcard-controls {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin-top: 20px;
-        }
-
-        .btn {
-            padding: 10px 20px;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            font-weight: bold;
-            transition: background 0.3s;
-            background-color: var(--primary);
-            color: white;
-        }
-
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        body { background-color: var(--bg-body); color: var(--text-main); line-height: 1.6; }
+        .container { max-width: 800px; margin: 0 auto; padding: 20px; }
+        header { text-align: center; margin-bottom: 30px; padding: 20px; background: var(--bg-card); border-radius: var(--border-radius); box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); }
+        h1 { color: var(--primary); font-size: 1.8rem; margin-bottom: 10px; }
+        .nav-tabs { display: flex; justify-content: center; gap: 10px; margin-bottom: 20px; flex-wrap: wrap; }
+        .tab-btn { padding: 10px 20px; border: none; background-color: var(--secondary); color: var(--text-main); border-radius: 8px; cursor: pointer; font-size: 1rem; font-weight: 600; transition: all 0.3s ease; }
+        .tab-btn.active, .tab-btn:hover { background-color: var(--primary); color: white; }
+        .section { display: none; background: var(--bg-card); padding: 20px; border-radius: var(--border-radius); box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); animation: fadeIn 0.4s ease-in-out; }
+        .section.active { display: block; }
+        .chapter-selector { margin-bottom: 20px; text-align: center; }
+        .chapter-selector select { padding: 10px; border-radius: 8px; border: 1px solid #ccc; font-size: 1rem; outline: none; cursor: pointer; }
+        .flashcard-container { perspective: 1000px; margin: 20px auto; width: 100%; height: 300px; max-width: 500px; }
+        .flashcard { width: 100%; height: 100%; position: relative; transition: transform 0.6s; transform-style: preserve-3d; cursor: pointer; }
+        .flashcard.flipped { transform: rotateY(180deg); }
+        .flashcard-front, .flashcard-back { position: absolute; width: 100%; height: 100%; backface-visibility: hidden; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 20px; border-radius: var(--border-radius); box-shadow: 0 4px 8px rgba(0,0,0,0.1); text-align: center; }
+        .flashcard-front { background-color: var(--primary); color: white; font-size: 1.5rem; font-weight: bold; }
+        .flashcard-back { background-color: white; color: var(--text-main); transform: rotateY(180deg); border: 2px solid var(--primary); font-size: 1.1rem; overflow-y: auto; }
+        .flashcard-controls { display: flex; justify-content: center; gap: 15px; margin-top: 20px; }
+        .btn { padding: 10px 20px; border: none; border-radius: 8px; cursor: pointer; font-weight: bold; transition: background 0.3s; background-color: var(--primary); color: white; }
         .btn:hover { background-color: var(--primary-dark); }
         .btn:disabled { background-color: #ccc; cursor: not-allowed; }
         .btn-success { background-color: var(--success); }
@@ -186,128 +48,30 @@
         .btn-danger:hover { background-color: #dc2626; }
         .btn-warning { background-color: var(--warning); color: #fff; }
         .btn-warning:hover { background-color: #d97706; }
-
         .lang-toggle { margin-bottom: 15px; text-align: center; }
-
-        /* Quizzes */
-        .question-card {
-            margin-bottom: 20px;
-            padding: 20px;
-            border: 1px solid #e5e7eb;
-            border-radius: 8px;
-            background: #f9fafb;
-        }
-
+        .question-card { margin-bottom: 20px; padding: 20px; border: 1px solid #e5e7eb; border-radius: 8px; background: #f9fafb; }
         .badge-mcq { background: #dbeafe; color: #1e40af; padding: 3px 8px; border-radius: 4px; font-size: 0.8rem; margin-bottom: 10px; display: inline-block; }
         .badge-written { background: #fef3c7; color: #b45309; padding: 3px 8px; border-radius: 4px; font-size: 0.8rem; margin-bottom: 10px; display: inline-block; }
-
-        .question-text {
-            font-size: 1.2rem;
-            font-weight: 600;
-            margin-bottom: 15px;
-            direction: ltr;
-            text-align: left;
-        }
-
+        .question-text { font-size: 1.2rem; font-weight: 600; margin-bottom: 15px; direction: ltr; text-align: left; }
         .options-list { list-style: none; direction: ltr; }
-
-        .option-item {
-            margin-bottom: 10px;
-            padding: 12px;
-            background: white;
-            border: 2px solid #e5e7eb;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: all 0.2s;
-            text-align: left;
-        }
-
+        .option-item { margin-bottom: 10px; padding: 12px; background: white; border: 2px solid #e5e7eb; border-radius: 8px; cursor: pointer; transition: all 0.2s; text-align: left; }
         .option-item:hover { border-color: var(--primary); background: #eff6ff; }
         .option-item.selected { background: #dbeafe; border-color: var(--primary); }
         .option-item.correct { background: #d1fae5; border-color: var(--success); color: #065f46; }
         .option-item.wrong { background: #fee2e2; border-color: var(--danger); color: #991b1b; }
-
-        /* Written Answer Textarea */
-        .written-answer-box {
-            width: 100%;
-            padding: 12px;
-            border: 2px solid #e5e7eb;
-            border-radius: 8px;
-            font-size: 1rem;
-            margin-bottom: 15px;
-            direction: ltr;
-            text-align: left;
-            resize: vertical;
-        }
+        .written-answer-box { width: 100%; padding: 12px; border: 2px solid #e5e7eb; border-radius: 8px; font-size: 1rem; margin-bottom: 15px; direction: ltr; text-align: left; resize: vertical; }
         .written-answer-box:focus { border-color: var(--primary); outline: none; }
-
-        /* Explanation & Hints */
-        .hint-btn {
-            background: transparent;
-            color: var(--primary);
-            border: 1px solid var(--primary);
-            margin-bottom: 15px;
-            padding: 5px 10px;
-            font-size: 0.9rem;
-            border-radius: 4px;
-            cursor: pointer;
-        }
+        .hint-btn { background: transparent; color: var(--primary); border: 1px solid var(--primary); margin-bottom: 15px; padding: 5px 10px; font-size: 0.9rem; border-radius: 4px; cursor: pointer; }
         .hint-btn:hover { background: var(--primary); color: white; }
-
-        .hint-box {
-            display: none;
-            background: #fffbeb;
-            border-right: 4px solid #f59e0b;
-            padding: 10px;
-            margin-bottom: 15px;
-            font-size: 0.95rem;
-            color: #92400e;
-        }
-
-        .eval-box {
-            display: none;
-            margin-top: 15px;
-            padding: 15px;
-            border-radius: 8px;
-            background: #f3f4f6;
-            border-right: 4px solid #6b7280;
-        }
+        .hint-box { display: none; background: #fffbeb; border-right: 4px solid #f59e0b; padding: 10px; margin-bottom: 15px; font-size: 0.95rem; color: #92400e; }
+        .eval-box { display: none; margin-top: 15px; padding: 15px; border-radius: 8px; background: #f3f4f6; border-right: 4px solid #6b7280; }
         .eval-box.correct { background: #d1fae5; border-color: var(--success); }
         .eval-box.partial { background: #fef3c7; border-color: var(--warning); }
         .eval-box.wrong { background: #fee2e2; border-color: var(--danger); }
-
-        .explanation-box {
-            display: none;
-            margin-top: 15px;
-            padding: 15px;
-            border-radius: 8px;
-            background: #eff6ff;
-            border-right: 4px solid var(--primary);
-        }
-        
-        .score-board {
-            text-align: center;
-            font-size: 1.5rem;
-            font-weight: bold;
-            margin-bottom: 20px;
-            color: var(--primary);
-            display: none;
-        }
-
-        .self-grade-panel {
-            display: none;
-            margin-top: 15px;
-            padding: 15px;
-            background: #fff;
-            border: 1px dashed #ccc;
-            border-radius: 8px;
-            text-align: center;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
+        .explanation-box { display: none; margin-top: 15px; padding: 15px; border-radius: 8px; background: #eff6ff; border-right: 4px solid var(--primary); }
+        .score-board { text-align: center; font-size: 1.5rem; font-weight: bold; margin-bottom: 20px; color: var(--primary); display: none; }
+        .self-grade-panel { display: none; margin-top: 15px; padding: 15px; background: #fff; border: 1px dashed #ccc; border-radius: 8px; text-align: center; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
     </style>
 </head>
 <body>
@@ -315,12 +79,12 @@
 <div class="container">
     <header>
         <h1><i class="fas fa-graduation-cap"></i> ITT420 - Network & System Admin</h1>
-        <p>تاقیکردنەوەی پێشکەوتوو بۆ پرسیارەکانی هەڵبژاردن و نووسینەکیش ✍️</p>
+        <p>تەواوی پرسیارەکانی سامپڵەکەی ساڵی پێشوو (Part A & B) ✍️</p>
     </header>
 
     <div class="nav-tabs">
         <button class="tab-btn active" onclick="showSection('flashcards')"><i class="fas fa-clone"></i> فلاش کارد</button>
-        <button class="tab-btn" onclick="showSection('past-paper')"><i class="fas fa-file-alt"></i> سامپڵی ساڵی پێشوو</button>
+        <button class="tab-btn" onclick="showSection('past-paper')"><i class="fas fa-file-alt"></i> تەواوی سامپڵی ساڵی پێشوو</button>
         <button class="tab-btn" onclick="showSection('practice')"><i class="fas fa-tasks"></i> ڕاهێنانی گشتی</button>
     </div>
 
@@ -336,20 +100,15 @@
                 <option value="8">چاپتەری ٨ (Service Recommendations)</option>
             </select>
         </div>
-
         <div class="lang-toggle">
-            <label>
-                <input type="checkbox" id="fc-lang" onchange="updateFlashcardDisplay()"> پیشاندانی ڕوونکردنەوە بە کوردی
-            </label>
+            <label><input type="checkbox" id="fc-lang" onchange="updateFlashcardDisplay()"> پیشاندانی ڕوونکردنەوە بە کوردی</label>
         </div>
-
         <div class="flashcard-container" onclick="toggleFlashcard()">
             <div class="flashcard" id="current-flashcard">
                 <div class="flashcard-front" id="fc-front"></div>
                 <div class="flashcard-back" id="fc-back"></div>
             </div>
         </div>
-
         <div class="flashcard-controls">
             <button class="btn" onclick="prevCard()" id="btn-prev"><i class="fas fa-arrow-right"></i> پێشووتر</button>
             <span id="fc-counter" style="line-height: 40px; font-weight: bold;">1 / 10</span>
@@ -360,14 +119,11 @@
     <!-- PAST PAPER SECTION -->
     <div id="past-paper" class="section">
         <div class="chapter-selector">
-            <h2 style="color:var(--primary); margin-bottom:10px;">Past Paper Exam (Part A & B)</h2>
-            <p style="color:var(--text-light); font-size:0.9rem;">پرسیارەکانی ساڵی پێشوو بەپێی ڕیزبەندی (هەڵبژاردن و نووسین)</p>
+            <h2 style="color:var(--primary); margin-bottom:10px;">Past Paper Exam (60 Marks Total)</h2>
+            <p style="color:var(--text-light); font-size:0.9rem;">پێکدێت لە Part A (١٠ نمرە) و Part B (٥٠ نمرە)</p>
         </div>
-        
         <div id="pp-score" class="score-board">نمرە: <span id="pp-score-val">0</span></div>
-
         <div id="pp-quiz-container"></div>
-
         <div class="flashcard-controls">
             <button class="btn" id="pp-submit" onclick="submitAnswer('pp')" disabled>وەڵام بدەوە</button>
             <button class="btn" id="pp-next" onclick="nextQuestion('pp')" style="display:none;">پرسیاری دواتر <i class="fas fa-arrow-left"></i></button>
@@ -385,47 +141,38 @@
                 <option value="5">تەنها چاپتەری ٥</option>
             </select>
         </div>
-
         <div id="pr-score" class="score-board">نمرە: <span id="pr-score-val">0</span></div>
-
         <div id="pr-quiz-container"></div>
-
         <div class="flashcard-controls">
             <button class="btn" id="pr-submit" onclick="submitAnswer('pr')" disabled>وەڵام بدەوە</button>
             <button class="btn" id="pr-next" onclick="nextQuestion('pr')" style="display:none;">پرسیاری دواتر <i class="fas fa-arrow-left"></i></button>
         </div>
     </div>
-
 </div>
 
 <script>
-    // --- DATA STORE ---
-
     const flashcardsData = [
         { ch: 5, term: "VLAN (Virtual LAN)", defEn: "Software-based segments on top of a physical network that act like separate networks.", defKu: "دابەشکردنی لۆجیکی بۆ تۆرێکی فیزیکی بەکارهێنانی سۆفتوێر." },
         { ch: 5, term: "IDF vs MDF", defEn: "IDF connects to wall jacks; MDF is the main core connecting all IDFs.", defKu: "ئای دی ئێف ژووری کەیبڵەکانە، ئێم دی ئێف سەنتەری سەرەکییە." },
         { ch: 5, term: "NAC (Network Access Control)", defEn: "Controls who joins the network using MAC, Authentication, or Certificates.", defKu: "کۆنتڕۆڵی گەیشتن بە تۆڕ لەڕێگەی ماک یان پاسۆرد." },
         { ch: 5, term: "Spine-Leaf Architecture", defEn: "Datacenter fabric where leaf switches connect only to spine switches for scalability.", defKu: "دیزاینی داتاسەنتەر کە سوویچەکانی خوارەوە تەنها بە سەرەوە دەبەسترێنەوە." },
-        
         { ch: 6, term: "Scope of Support", defEn: "A written policy defining what, who, when, and how long IT will support.", defKu: "بەڵگەنامەیەک کە دیاری دەکات تیمی ئایتی چی و کێ پشتیوانی دەکات." },
         { ch: 6, term: "Escalation", defEn: "Moving a problem to someone with more expertise.", defKu: "گواستنەوەی کێشەیەک بۆ ئاستێکی بەرزتر یان شارەزاتر." },
         { ch: 6, term: "Workaround", defEn: "A temporary fix that hides the symptom but doesn't solve the root cause.", defKu: "چارەسەرێکی کاتی کە تەنها نیشانەی کێشەکە دەشارێتەوە." },
         { ch: 6, term: "Real Fix", defEn: "A permanent solution that eliminates the root cause of a problem.", defKu: "چارەسەری بنچینەیی و هەمیشەیی کە ڕەگی کێشەکە چارەسەر دەکات." },
-
         { ch: 7, term: "Change Review Board (CRB)", defEn: "A committee that reviews, approves, or rejects large change requests.", defKu: "لیژنەیەک کە پێداچوونەوە و ڕەزامەندی لەسەر گۆڕانکارییە گەورەکان دەکات." },
         { ch: 7, term: "Technical Plan Parts", defEn: "1. Change Process, 2. Testing Doc, 3. Success Criteria, 4. Backout Plan, 5. Decision Point.", defKu: "٥ بەشەکەی پلانی تەکنیکی: هەنگاوەکان، تاقیکردنەوە، پێوەری سەرکەوتن، پاشگەزبوونەوە، بڕیاردان." },
         { ch: 7, term: "Maintenance Window", defEn: "A pre-planned time slot to perform disruptive system changes safely.", defKu: "کاتێکی پلاندانراو بۆ ئەنجامدانی گۆڕانکاری کە کەمترین زیانی هەبێت." },
-        
         { ch: 8, term: "Historical Monitoring", defEn: "Recording data over time to plan for the future.", defKu: "تۆمارکردنی داتا بۆ بینینی ئاماری ڕابردوو و پلاندانان." },
         { ch: 8, term: "DNS Anycast", defEn: "Routing DNS traffic to the closest available server.", defKu: "ناردنی ترافیک بۆ نزیکترین سێرڤەری بەردەست." },
         { ch: 8, term: "AuthN vs AuthZ", defEn: "AuthN: Proving identity. AuthZ: Checking permissions.", defKu: "Authentication سەلماندنی ناسنامە، Authorization پێدانی دەسەڵاتە." }
     ];
 
     const pastPaperQuestions = [
-        // PART A: MCQs
+        // PART A (MCQs)
         {
             type: 'mcq', ch: 8, marks: 1,
-            q: "To ensure data integrity, an organization may decide to setup a redundant site with redundant system to ensure that it will not be affected by the same disaster. Redundant sites can help data from the following disaster except:",
+            q: "PART A - Q1: To ensure data integrity, an organization may decide to setup a redundant site with redundant system to ensure that it will not be affected by the same disaster. Redundant sites can help data from the following disaster except:",
             hint: "سایتی جێگرەوە هەمان داتا کۆپی دەکات. ئەگەر بە هەڵە فایلێک بسڕیتەوە، ڕاستەوخۆ لەوێش دەسڕێتەوە.",
             options: ["A. Tornado.", "B. Security Breach.", "C. Accidental File Deletion.", "D. Hard Disk Failure."],
             answer: 2,
@@ -434,7 +181,7 @@
         },
         {
             type: 'mcq', ch: 6, marks: 1,
-            q: "One of the positive roles of a system administrator is the ability to bring the company back to life when technological problems stall a business. This role is known as:",
+            q: "PART A - Q2: One of the positive roles of a system administrator is the ability to bring the company back to life when technological problems stall a business. This role is known as:",
             hint: "ئەو کەسەی شتەکان چاک دەکاتەوە لە کاتی کێشەدا پێی دەوترێت کەسی چاککەرەوە.",
             options: ["A. The Problem Preventer.", "B. The Repair Person.", "C. The Maintainer.", "D. The Installer."],
             answer: 1,
@@ -442,8 +189,17 @@
             expKu: "لە کاتی وەستانی کارەکاندا، ئایتی دەبێتە (The Repair Person) واتە کەسی چاککەرەوە."
         },
         {
+            type: 'mcq', ch: 6, marks: 1,
+            q: "PART A - Q3: System Administrator visibility will help to improve perception of the value of a System Administrator in an organization. Following are ways to boost visibility except for:",
+            hint: "ناردنی ئیمەیڵ بۆ هەموو کڕیاران وەک بێزارکردن سەیر دەکرێت.",
+            options: ["A. Management Meeting.", "B. Helpdesk.", "C. Newsletters.", "D. Mail to all customers."],
+            answer: 3,
+            expEn: "Mailing ALL customers routinely is generally seen as spam/intrusive.",
+            expKu: "ناردنی ئیمەیڵ بۆ (هەموو) کڕیاران ڕێگەیەکی گونجاو نییە و وەک بێزارکردن سەیر دەکرێت."
+        },
+        {
             type: 'mcq', ch: 5, marks: 1,
-            q: "Workstations and Servers are fundamentally different. Here are some characteristics for servers except:",
+            q: "PART A - Q4: Workstations and Servers are fundamentally different. The differences stem from the ways that each is used. Here are some characteristics for servers except:",
             hint: "سێرڤەرەکان لە ڕاک (Rack) دادەنرێن و لە لای تەنیشتەوە دەستیان پێناگات.",
             options: ["A. More CPU Performance.", "B. Expandability.", "C. Rack mountable.", "D. Side Access."],
             answer: 3,
@@ -452,54 +208,139 @@
         },
         {
             type: 'mcq', ch: 6, marks: 1,
-            q: "All organizations need a set of guidelines for the reasonable use of company's computer. These guidelines are called:",
+            q: "PART A - Q5: A service conversion project is a project where software is upgraded and multiple tasks must be performed on customer. We can perform one task for all customers before moving on to the next task and doing that for all customers. This approach is called:",
+            hint: "کاتێک پرۆسەیەک دەکەیت بە شێوەیەک کە یەک هەنگاو (Layer) بۆ هەمووان دەکەیت پێش ئەوەی بچیتە هەنگاوی دووەم.",
+            options: ["A. The Layers approach.", "B. The Pillars approach.", "C. The Slices approach.", "D. The Stripes approach."],
+            answer: 0,
+            expEn: "The Layers approach completes one layer of the project across the entire user base before moving to the next layer.",
+            expKu: "ڕێگەی 'لەیەر - Layers' واتە یەکەم کار بۆ هەموو کڕیاران تەواو بکەیت ئینجا بچیتە سەر کاری دووەم بۆ هەموویان."
+        },
+        {
+            type: 'mcq', ch: 5, marks: 1,
+            q: "PART A - Q6: To provide redundancy, redundancy design patterns are used to provide more performance or better reliability. The first category of patterns involves two equivalent set of hardware known as master and slave. If a service runs on a master, the slave receives continuous update from the master. If the master fails, the slave can take over with no data loss. This configuration is known as:",
+            hint: "سلەیڤەکە بە بەردەوامی ئیش دەکات و یەدەگێکی گەرمە (Hot Spare).",
+            options: ["A. Master plus hot spare.", "B. Master plus hot plug.", "C. Master plus hot swap.", "D. Master plus hot slave."],
+            answer: 0,
+            expEn: "A hot spare is a backup component running in the background, receiving updates, ready to take over immediately.",
+            expKu: "بەو ئامێرەی کە بەردەوام ئیش دەکات و چاوەڕێی کەوتنی سەرەکییەکەیە دەوترێت Hot Spare (یەدەگی گەرم)."
+        },
+        {
+            type: 'mcq', ch: 6, marks: 1,
+            q: "PART A - Q7: With the privileged given to System Administrator, there are circumstances where System Administrator will observe illegal activities committed by a user in an organization. When this happens, the System Administrator should:",
+            hint: "ئەرکی تۆ تەنها ئاگادارکردنەوەی بەڕێوەبەرایەتییە.",
+            options: ["A. Contact the user and give warning.", "B. Report the activity.", "C. Block user from repeating the activity.", "D. Suspend the user's account."],
+            answer: 1,
+            expEn: "System Administrators should formally report illegal activities according to company policy, rather than confronting the user directly.",
+            expKu: "وەک ئەدمین، ئەرکی تۆ ئاگادارکردنەوەیە (Report). نابێت خۆت سزای بدەیت یان ئاگاداری بکەیتەوە."
+        },
+        {
+            type: 'mcq', ch: 8, marks: 1,
+            q: "PART A - Q8: Redundant Array of Independent Disks (RAID) is often used in servers to ensure data integrity. It can help in protecting data from:",
+            hint: "ڕەید تەنها بۆ پاراستنی هاردەکانە لە ڕووی فیزیکییەوە کاتێک لەکار دەکەون.",
+            options: ["A. Accidental deletion.", "B. Fire.", "C. Hard Disk Failure.", "D. System Compromise."],
+            answer: 2,
+            expEn: "RAID protects against physical disk hardware failures.",
+            expKu: "ڕەید (RAID) تەنها بۆ ئەوەیە ئەگەر هاردێک سووتا یان لەکار کەوت، زانیارییەکان لە ناو نەچن."
+        },
+        {
+            type: 'mcq', ch: 8, marks: 1,
+            q: "PART A - Q9: In a RAID 1 configuration, data is stored in both disks so that if one disk fails, the other disk serves as a backup. The data is stored in both disks by using the method of:",
+            hint: "RAID 1 وەک ئاوێنە کۆپی دەکات.",
+            options: ["A. Strip across two disks.", "B. Mirror on one disk.", "C. Strip then mirror.", "D. Mirror then strip."],
+            answer: 1,
+            expEn: "RAID 1 is pure disk mirroring. Data written to one drive is identically mirrored to the other.",
+            expKu: "ڕەید یەک (RAID 1) بریتییە لە Mirror واتە دروستکردنی وێنەیەک لەسەر هاردێکی تر."
+        },
+        {
+            type: 'mcq', ch: 6, marks: 1,
+            q: "PART A - Q10: All organizations need a set of guidelines for the reasonable use of company's computer. These guidelines are called:",
             hint: "پۆلیسی بەکارهێنانی قبوڵکراو.",
             options: ["A. Acceptable Use Policy (AUP).", "B. Agreed Use Policy (AUP).", "C. Acceptable Code of Conduct (ACC).", "D. Agreed Code of Conduct (ACC)."],
             answer: 0,
-            expEn: "AUP defines what users can and cannot do on company equipment.",
-            expKu: "یاسای (Acceptable Use Policy) دیاری دەکات چۆن ئامێرەکانی کۆمپانیا بەکاربهێنرێن."
+            expEn: "The Acceptable Use Policy (AUP) outlines what employees can and cannot do on corporate IT equipment.",
+            expKu: "بەو یاسایانە دەوترێت (Acceptable Use Policy - AUP) کە بۆ بەکارهێنانی ئامێرەکانی کۆمپانیایە."
         },
 
-        // PART B: WRITTEN
+        // PART B: WRITTEN (50 MARKS)
         {
             type: 'written', ch: 5, marks: 5,
-            q: "One of the common WAN topologies is star topology. Identify the problem associated by using star topology and suggest the solution.",
+            q: "PART B - Q1(a): One of the common WAN topologies is star topology. In this topology, there is one central location, and every other site connects directly to that location. Identify the problem associated by using star topology and suggest the solution.",
             hint: "Star topology یەک سەنتەری هەیە. کێشەکە ئەوەیە ئەگەر سەنتەرەکە بکەوێت چی دەبێت؟ چارەسەر زیادکردنی سەنتەرێکی ترە (Dual/Multi).",
-            keywords: ["single point", "failure", "fail", "dual star", "multi-star", "multi star", "backup"],
-            expEn: "The problem is a Single Point of Failure (if the central datacentre goes down, everything goes down). The solution is a Dual Star or Multi-star topology to provide redundancy.",
+            keywords: ["single point", "failure", "fail", "dual star", "multi-star", "multi star", "redundancy", "backup"],
+            expEn: "The problem is a Single Point of Failure (if the central datacentre goes down, the entire network fails). The solution is to use a Dual Star or Multi-star topology to provide redundancy.",
             expKu: "کێشەکە (Single Point of Failure)ە، واتە ئەگەر سێرڤەری سەرەکی بوەستێت هەموو کۆمپانیا دەوەستێت. چارەسەر (Dual Star) یان (Multi-star)ە کە سێرڤەری یەدەگ (Backup) زیاد دەکات."
         },
         {
+            type: 'written', ch: 5, marks: 4,
+            q: "PART B - Q1(b): Draw the topology suggested in 1(a). (Since you cannot draw, describe exactly how you would draw it).",
+            hint: "دەبێت وەسفی بکەیت کە دوو خاڵی سەرەکی (Hub) هەیە، وە هەر خاڵێکی تر (Node) بە هەردووکیانەوە بەستراوەتەوە.",
+            keywords: ["two central", "two hubs", "nodes connected to both", "redundant links", "dual", "connect to both", "two main"],
+            expEn: "To draw a Dual Star topology: Draw two central hubs (Main DC and Backup DC). Then draw several field offices. Draw a connecting line from EACH field office to the Main DC, AND another line from EACH field office to the Backup DC.",
+            expKu: "بۆ کێشانی Dual Star: دوو خاڵی سەرەکی دەکێشیت (وەک دوو سێرڤەر). پاشان ئۆفیسەکانی تر دەکێشیت، و لە هەر ئۆفیسێکەوە دوو هێڵ دەبەیت، یەکێک بۆ سێرڤەری یەکەم و یەکێک بۆ سێرڤەری دووەم."
+        },
+        {
             type: 'written', ch: 5, marks: 6,
-            q: "Network Access Control (NAC) determines whether a device should be given access to a network. List and briefly describe the THREE (3) options.",
+            q: "PART B - Q1(c): Network Access Control (NAC) determines whether a device should be given access to a network. There are three options in implementing NAC. List and briefly describe the THREE (3) options.",
             hint: "سێ جۆرەکە بریتین لە: ماک ئەدرێس، یوزەر و پاسۆرد (ئۆتێنتیکەیشن)، وە بڕوانامە (سێرتفیکەیت).",
             keywords: ["mac", "authentication", "password", "certificate"],
-            expEn: "1. MAC-based: Checks device's MAC address against an approved list. 2. Authentication-based: User enters username & password. 3. Certificate-based: Installs a digital certificate on the device after a one-time check.",
+            expEn: "1. MAC-based: Checks device's MAC address against an approved list. 2. Authentication-based: User enters username & password to connect. 3. Certificate-based: Installs a digital certificate on the device after a one-time check.",
             expKu: "١. MAC-based (پشکنین بەپێی ماک ئەدرێس). ٢. Authentication-based (بەکارهێنانی یوزەر و پاسۆرد). ٣. Certificate-based (بەکارهێنانی بڕوانامەی دیجیتاڵی لەسەر ئامێرەکە)."
         },
         {
             type: 'written', ch: 6, marks: 4,
-            q: "Discuss the ways customer support can provide friendly faces.",
+            q: "PART B - Q2(a): Discuss the ways customer support can provide friendly faces.",
             hint: "بە دیزاینی جوانی ژوورەکە، و هەڵبژاردنی کارمەندی ڕووخۆش، و ڕەنگی گونجاو لە وێبسایتدا.",
             keywords: ["pleasant", "interior", "friendly", "supervisors", "colors", "fonts", "approachable"],
-            expEn: "For physical helpdesks: Pleasant interior design and friendly supervisors who attract friendly staff. For virtual helpdesks: Soothing colors, readable fonts, and polite tones.",
-            expKu: "بۆ هێڵپ دێسکی فیزیکی: دیزاینێکی کراوە و جوان، و بەڕێوەبەری ڕووخۆش. بۆ ڤێرچواڵ: بەکارهێنانی ڕەنگی ئارامبەخش و فۆنتی جوان."
+            expEn: "For physical helpdesks: Pleasant interior design and friendly supervisors who naturally attract and build friendly staff. For virtual helpdesks: Soothing colors, readable fonts, and an approachable tone.",
+            expKu: "بۆ هێڵپ دێسکی فیزیکی: دیزاینێکی کراوە و جوان، و بەڕێوەبەری ڕووخۆش کە کارمەندی باش ڕادەکێشێت. بۆ ڤێرچواڵ: بەکارهێنانی ڕەنگی ئارامبەخش و فۆنتی ڕوون."
+        },
+        {
+            type: 'written', ch: 6, marks: 6,
+            q: "PART B - Q2(b): Construct a division of helpdesks to cater different needs and functions.",
+            hint: "دابەشكردنیان بۆ تیمەکان: تیمی داواکاری نوێ، تیمی ڕاپۆرتی کێشەکان، تیمی دامەزراندنی پارچەکان.",
+            keywords: ["new service", "provisioning", "problem reports", "troubleshooting", "physical installations", "hardware"],
+            expEn: "A helpdesk can be divided into distinct teams: 1. New Service Requests Team (handles Provisioning and Onboarding). 2. Problem Reports Team (handles Troubleshooting and Break/Fix). 3. Installation Team (handles Hardware Setup and Cabling).",
+            expKu: "دابەشکردنی هێڵپ دێسک بۆ ٣ تیم: ١. تیمی داواکارییە نوێیەکان (وەک دروستکردنی ئەکاونت). ٢. تیمی کێشەکان (چارەسەرکردن و تێکچوون). ٣. تیمی دامەزراندن (بەستنی هاردوێر و کەیبڵ)."
         },
         {
             type: 'written', ch: 7, marks: 5,
-            q: "Produce a complete technical plan required in change management.",
-            hint: "پلانە تەکنیکییەکە ٥ بەشی هەیە (هەنگاوەکان، تاقیکردنەوە، سەرکەوتن، پاشگەزبوونەوە، بڕیاردان).",
+            q: "PART B - Q3(a): Produce a complete technical plan required in change management.",
+            hint: "پلانە تەکنیکییەکە ٥ بەشی هەیە (پرۆسەکە، تاقیکردنەوە، سەرکەوتن، پاشگەزبوونەوە، بڕیاردان).",
             keywords: ["change process", "testing", "success criteria", "backout", "decision point"],
-            expEn: "A complete technical plan requires 5 parts: 1. Change Process (step-by-step), 2. Testing Documentation, 3. Success Criteria, 4. Backout Plan, 5. Decision Point.",
-            expKu: "پێنج بەشەکە: Change Process (پرۆسەکە)، Testing (تاقیکردنەوە)، Success Criteria (پێوەری سەرکەوتن)، Backout Plan (پلانی پاشگەزبوونەوە)، Decision Point (خاڵی بڕیاردان)."
+            expEn: "A complete technical plan requires 5 parts: 1. Change Process (step-by-step flow), 2. Testing Documentation (proof of lab testing), 3. Success Criteria (how to know it worked), 4. Backout Plan (how to undo it), 5. Decision Point (when to trigger the backout).",
+            expKu: "پێنج بەشەکە: ١. Change Process (پرۆسەکە بە هەنگاو)، ٢. Testing (تاقیکردنەوە)، ٣. Success Criteria (پێوەری سەرکەوتن)، ٤. Backout Plan (پلانی پاشگەزبوونەوە)، ٥. Decision Point (خاڵی بڕیاردان)."
+        },
+        {
+            type: 'written', ch: 7, marks: 5,
+            q: "PART B - Q3(b): Distinguish all levels of tiered change review boards (CRB).",
+            hint: "Level 1 بۆ تیمی تەکنیکییە (تاقیکردنەوە). Level 2 بۆ بەڕێوەبەرە باڵاکانە (بڕیاردانی کۆتایی).",
+            keywords: ["level 1", "technical", "level 2", "managers", "management", "broader"],
+            expEn: "Level 1 (Lowest): Technical teams review the change to ensure it is properly planned and tested. Level 2 (Highest): Higher-level IT managers provide a broader review and final approval based on business risk.",
+            expKu: "ئاستی یەکەم (Level 1): تیمی تەکنیکییە کە سەیر دەکات بزانێت پلانەکە بە باشی دانراوە و تاقی کراوەتەوە. ئاستی دووەم (Level 2): بۆ بەڕێوەبەرە باڵاکانی ئایتییە بۆ پێداچوونەوەی فراوانتر و ڕەزامەندی."
         },
         {
             type: 'written', ch: 8, marks: 5,
-            q: "List FIVE (5) main parts of email service.",
+            q: "PART B - Q4(a): Identify FIVE (5) techniques or technologies for managing data storage.",
+            hint: "تەکنەلۆژیاکانی ستۆرج وەک: DAS, NAS, SAN, RAID وە هەروەها File System.",
+            keywords: ["das", "nas", "san", "raid", "ssd", "volume", "file system"],
+            expEn: "1. DAS (Directly Attached Storage), 2. NAS (Network Attached Storage), 3. SAN (Storage Area Network), 4. RAID (Redundant Array of Independent Disks), 5. File System / Volume Management.",
+            expKu: "تەکنیکەکان بریتین لە: ١. DAS (ستۆرجی ڕاستەوخۆ). ٢. NAS (ستۆرجی سەر تۆڕ). ٣. SAN (تۆڕی تایبەت بە ستۆرج). ٤. RAID (بۆ پاراستنی هاردەکان). ٥. File System و Volumes."
+        },
+        {
+            type: 'written', ch: 8, marks: 5,
+            q: "PART B - Q4(b): List FIVE (5) main parts of email service.",
             hint: "پێنج بەشەکەی ئیمەیڵ: گواستنەوە (MTA)، وەرگرتن (MDA)، سێرڤەری چوونەژوورەوە، لیستی گرووپەکان، و فلتەرکردن.",
             keywords: ["mta", "mda", "access", "pop3", "imap", "list", "filtering"],
-            expEn: "1. MTA (Mail Transport Agent), 2. MDA (Mail Delivery Agent), 3. Access servers (POP3/IMAP4), 4. List processing, 5. Filtering (anti-spam/virus).",
+            expEn: "1. MTA (Mail Transport Agent), 2. MDA (Mail Delivery Agent), 3. Access servers (e.g., POP3/IMAP4), 4. List processing, 5. Filtering (anti-spam/virus).",
             expKu: "١. بریکاری گواستنەوە (MTA). ٢. بریکاری گەیاندن (MDA). ٣. سێرڤەرەکانی ئەکسێس وەک POP3. ٤. پڕۆسێسکردنی لیستی ئیمەیڵ. ٥. فلتەرکردنی سپام و ڤایرۆس."
+        },
+        {
+            type: 'written', ch: 8, marks: 5,
+            q: "PART B - Q4(c): Illustrate horizontal scaling with a load balancer and shared database for web services. (Describe the illustration).",
+            hint: "ڕوونی بکەرەوە کە یەک لۆد باڵانسەر ترافیک دابەش دەکات بەسەر چەندین وێب سێرڤەردا (شێوەی ئاسۆیی)، کە هەموویان دەبەسترێنەوە بە یەک داتابەیسی هاوبەشەوە لە پشتەوە.",
+            keywords: ["load balancer", "multiple", "web servers", "shared database", "horizontal", "distribute", "parallel"],
+            expEn: "The diagram should show clients connecting to a single 'Load Balancer' at the front. The load balancer distributes traffic to multiple 'Web Servers' arranged side-by-side (Horizontal Scaling). Finally, all these web servers connect to a single 'Shared Database' at the back.",
+            expKu: "شێوەکە بەم جۆرەیە: لە پێشەوە یەک (Load Balancer) هەیە کە ترافیک وەردەگرێت و دابەشی دەکات بەسەر چەندین (Web Server) کە لە تەنیشت یەکەوە دانراون (کە ئەمە پێی دەوترێت Horizontal). پاشان هەموو سێرڤەرەکان لە پشتەوە دەبەسترێنەوە بە یەک (Shared Database)ی هاوبەشەوە."
         }
     ];
 
@@ -532,8 +373,6 @@
         }
     ];
 
-    // --- APP LOGIC ---
-
     let currentCardIndex = 0;
     let filteredFlashcards = [];
     let fcShowKurdish = false;
@@ -552,28 +391,19 @@
     function showSection(sectionId) {
         document.querySelectorAll('.section').forEach(sec => sec.classList.remove('active'));
         document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
-        
         document.getElementById(sectionId).classList.add('active');
         event.currentTarget.classList.add('active');
         currentActiveTab = sectionId;
 
-        if(sectionId === 'flashcards') {
-            loadFlashcards();
-        } else if (sectionId === 'past-paper' && currentPPIndex === 0) {
-            resetPP();
-        } else if (sectionId === 'practice' && currentPrIndex === 0) {
-            loadPracticeQuestions();
-        }
+        if(sectionId === 'flashcards') { loadFlashcards(); } 
+        else if (sectionId === 'past-paper' && currentPPIndex === 0) { resetPP(); } 
+        else if (sectionId === 'practice' && currentPrIndex === 0) { loadPracticeQuestions(); }
     }
 
-    // --- FLASHCARDS LOGIC ---
     function loadFlashcards() {
         const chapter = document.getElementById('fc-chapter').value;
-        if(chapter === 'all') {
-            filteredFlashcards = flashcardsData;
-        } else {
-            filteredFlashcards = flashcardsData.filter(c => c.ch == chapter);
-        }
+        if(chapter === 'all') { filteredFlashcards = flashcardsData; } 
+        else { filteredFlashcards = flashcardsData.filter(c => c.ch == chapter); }
         currentCardIndex = 0;
         document.getElementById('current-flashcard').classList.remove('flipped');
         updateFlashcardDisplay();
@@ -583,15 +413,8 @@
         if(filteredFlashcards.length === 0) return;
         fcShowKurdish = document.getElementById('fc-lang').checked;
         const cardData = filteredFlashcards[currentCardIndex];
-        
-        document.getElementById('fc-front').innerHTML = `
-            <div style="font-size:0.9rem; margin-bottom:10px; opacity:0.8;">Chapter ${cardData.ch}</div>
-            ${cardData.term}
-        `;
-        document.getElementById('fc-back').innerHTML = `
-            <p style="margin-bottom:15px; direction:ltr;">${cardData.defEn}</p>
-            ${fcShowKurdish ? `<p style="color:var(--primary); font-weight:bold; border-top:1px solid #ccc; padding-top:10px;">${cardData.defKu}</p>` : ''}
-        `;
+        document.getElementById('fc-front').innerHTML = `<div style="font-size:0.9rem; margin-bottom:10px; opacity:0.8;">Chapter ${cardData.ch}</div>${cardData.term}`;
+        document.getElementById('fc-back').innerHTML = `<p style="margin-bottom:15px; direction:ltr;">${cardData.defEn}</p>${fcShowKurdish ? `<p style="color:var(--primary); font-weight:bold; border-top:1px solid #ccc; padding-top:10px;">${cardData.defKu}</p>` : ''}`;
         document.getElementById('fc-counter').innerText = `${currentCardIndex + 1} / ${filteredFlashcards.length}`;
         document.getElementById('btn-prev').disabled = currentCardIndex === 0;
         document.getElementById('btn-next').disabled = currentCardIndex === filteredFlashcards.length - 1;
@@ -602,19 +425,15 @@
     function nextCard() { if(currentCardIndex < filteredFlashcards.length - 1) { currentCardIndex++; updateFlashcardDisplay(); } }
     function prevCard() { if(currentCardIndex > 0) { currentCardIndex--; updateFlashcardDisplay(); } }
 
-    // --- QUIZ LOGIC CONTROLLER ---
     function buildQuizHTML(qData, type) {
         let contentHTML = '';
-        
         const badgeClass = qData.type === 'written' ? 'badge-written' : 'badge-mcq';
         const badgeText = qData.type === 'written' ? '<i class="fas fa-keyboard"></i> پرسیاری نووسین' : '<i class="fas fa-list-ul"></i> هەڵبژاردن';
         const marksText = `<span style="float:left; font-size:0.9rem; color:var(--text-light);">${qData.marks} Marks</span>`;
 
         if (qData.type === 'mcq' || !qData.type) {
             let optionsHTML = '';
-            qData.options.forEach((opt, idx) => {
-                optionsHTML += `<li class="option-item" id="${type}-opt-${idx}" onclick="selectOption('${type}', ${idx})">${opt}</li>`;
-            });
+            qData.options.forEach((opt, idx) => { optionsHTML += `<li class="option-item" id="${type}-opt-${idx}" onclick="selectOption('${type}', ${idx})">${opt}</li>`; });
             contentHTML = `<ul class="options-list">${optionsHTML}</ul>`;
         } else if (qData.type === 'written') {
             contentHTML = `
@@ -652,7 +471,6 @@
         document.querySelectorAll(`#${type}-quiz-container .option-item`).forEach(el => el.classList.remove('selected'));
         document.getElementById(`${type}-opt-${idx}`).classList.add('selected');
         document.getElementById(`${type}-submit`).disabled = false;
-        
         if(type === 'pp') window.ppSelected = idx;
         if(type === 'pr') window.prSelected = idx;
     }
@@ -661,10 +479,7 @@
         if(!keywords || keywords.length === 0) return { status: 'partial', msg: 'پێویستە خۆت هەڵیبسەنگێنیت.' };
         let matchCount = 0;
         const lowerText = text.toLowerCase();
-        keywords.forEach(kw => {
-            if(lowerText.includes(kw.toLowerCase())) matchCount++;
-        });
-        
+        keywords.forEach(kw => { if(lowerText.includes(kw.toLowerCase())) matchCount++; });
         const ratio = matchCount / keywords.length;
         if(ratio >= 0.5) return { status: 'correct', msg: 'پێدەچێت وەڵامەکەت زۆر باش بێت! وشە سەرەکییەکانی تێدایە.' };
         if(ratio > 0) return { status: 'partial', msg: 'وەڵامەکەت کەمێک نزیکە، بەڵام پێویستی بە وردەکاری زیاترە.' };
@@ -678,7 +493,6 @@
         if (qData.type === 'mcq' || !qData.type) {
             const selectedIdx = type === 'pp' ? window.ppSelected : window.prSelected;
             const opts = document.querySelectorAll(`#${type}-quiz-container .option-item`);
-            
             opts.forEach((opt, idx) => {
                 if(idx === qData.answer) {
                     opt.classList.add('correct');
@@ -692,40 +506,27 @@
                     opt.innerHTML += ' <i class="fas fa-times-circle" style="float:right;"></i>';
                 }
             });
-
             document.getElementById(`${type}-next`).style.display = 'inline-block';
             updateScore(type);
-
         } else if (qData.type === 'written') {
             const userText = document.getElementById(`${type}-written-answer`).value;
             document.getElementById(`${type}-written-answer`).disabled = true;
-            
             const evalResult = autoEvaluate(userText, qData.keywords);
             const evalBox = document.getElementById(`${type}-eval`);
             evalBox.classList.add(evalResult.status);
             evalBox.innerHTML = `<strong>پشکنینی ئۆتۆماتیکی AI:</strong> ${evalResult.msg}`;
             evalBox.style.display = 'block';
-
-            // Show self-grade buttons instead of next
             document.getElementById(`${type}-self-grade`).style.display = 'block';
         }
 
-        // Show Explanation for both types
         expBox.style.display = 'block';
-        expBox.innerHTML = `
-            <strong>Model Answer (وەڵامی نموونەیی):</strong><br>
-            <p style="direction:ltr; margin-bottom:10px; background:#e0f2fe; padding:10px; border-radius:5px;">${qData.expEn}</p>
-            <strong>ڕوونکردنەوەی کوردی:</strong><br>
-            <p>${qData.expKu}</p>
-        `;
-
+        expBox.innerHTML = `<strong>Model Answer (وەڵامی نموونەیی):</strong><br><p style="direction:ltr; margin-bottom:10px; background:#e0f2fe; padding:10px; border-radius:5px;">${qData.expEn}</p><strong>ڕوونکردنەوەی کوردی:</strong><br><p>${qData.expKu}</p>`;
         document.getElementById(`${type}-submit`).style.display = 'none';
     }
 
     function applySelfGrade(type, marksToAdd) {
         if(type === 'pp') ppScore += marksToAdd;
         if(type === 'pr') prScore += marksToAdd;
-        
         updateScore(type);
         document.getElementById(`${type}-self-grade`).style.display = 'none';
         document.getElementById(`${type}-next`).style.display = 'inline-block';
@@ -733,44 +534,26 @@
 
     function updateScore(type) {
         document.getElementById(`${type}-score`).style.display = 'block';
-        if(type === 'pp') {
-            document.getElementById('pp-score-val').innerText = `${ppScore} / ${ppTotalMarks}`;
-        } else {
-            document.getElementById('pr-score-val').innerText = `${prScore} / ${prTotalMarks}`;
-        }
+        if(type === 'pp') { document.getElementById('pp-score-val').innerText = `${ppScore} / ${ppTotalMarks}`; } 
+        else { document.getElementById('pr-score-val').innerText = `${prScore} / ${prTotalMarks}`; }
     }
 
-    // --- PAST PAPER ---
     function loadPPQuestion() {
         if(currentPPIndex >= pastPaperQuestions.length) {
-            document.getElementById('pp-quiz-container').innerHTML = `
-                <div style="text-align:center; padding:30px;">
-                    <i class="fas fa-trophy" style="font-size:3rem; color:var(--primary); margin-bottom:15px;"></i>
-                    <h2>تاقیکردنەوە تەواو بوو!</h2>
-                    <p style="font-size:1.2rem;">نمرەی کۆتاییت: <strong>${ppScore} لە کۆی ${ppTotalMarks}</strong></p>
-                    <button class="btn" onclick="resetPP()" style="margin-top:20px;">دووبارەکردنەوە</button>
-                </div>
-            `;
+            document.getElementById('pp-quiz-container').innerHTML = `<div style="text-align:center; padding:30px;"><i class="fas fa-trophy" style="font-size:3rem; color:var(--primary); margin-bottom:15px;"></i><h2>تاقیکردنەوە تەواو بوو!</h2><p style="font-size:1.2rem;">نمرەی کۆتاییت: <strong>${ppScore} لە کۆی ${ppTotalMarks}</strong></p><button class="btn" onclick="resetPP()" style="margin-top:20px;">دووبارەکردنەوە</button></div>`;
             document.getElementById('pp-next').style.display = 'none';
             return;
         }
-
         const q = pastPaperQuestions[currentPPIndex];
         document.getElementById('pp-quiz-container').innerHTML = buildQuizHTML(q, 'pp');
-        
         document.getElementById('pp-submit').style.display = 'inline-block';
         document.getElementById('pp-submit').disabled = true;
         document.getElementById('pp-next').style.display = 'none';
     }
 
     function nextQuestion(type) {
-        if(type === 'pp') {
-            currentPPIndex++;
-            loadPPQuestion();
-        } else {
-            currentPrIndex++;
-            loadPrQuestion();
-        }
+        if(type === 'pp') { currentPPIndex++; loadPPQuestion(); } 
+        else { currentPrIndex++; loadPrQuestion(); }
     }
 
     function resetPP() {
@@ -781,15 +564,10 @@
         loadPPQuestion();
     }
 
-    // --- PRACTICE ROOM ---
     function loadPracticeQuestions() {
         const chapter = document.getElementById('pr-chapter').value;
-        if(chapter === 'all') {
-            prQuestions = practiceQuestionsData;
-        } else {
-            const chNum = parseInt(chapter);
-            prQuestions = practiceQuestionsData.filter(q => q.ch <= chNum);
-        }
+        if(chapter === 'all') { prQuestions = practiceQuestionsData; } 
+        else { const chNum = parseInt(chapter); prQuestions = practiceQuestionsData.filter(q => q.ch <= chNum); }
         
         currentPrIndex = 0;
         prScore = 0;
@@ -801,37 +579,24 @@
              document.getElementById('pr-submit').style.display = 'none';
              return;
         }
-        
         updateScore('pr');
         loadPrQuestion();
     }
 
     function loadPrQuestion() {
          if(currentPrIndex >= prQuestions.length) {
-            document.getElementById('pr-quiz-container').innerHTML = `
-                <div style="text-align:center; padding:30px;">
-                    <i class="fas fa-star" style="font-size:3rem; color:#f59e0b; margin-bottom:15px;"></i>
-                    <h2>ڕاهێنان تەواو بوو!</h2>
-                    <p style="font-size:1.2rem;">نمرەکەت: <strong>${prScore} لە ${prTotalMarks}</strong></p>
-                </div>
-            `;
+            document.getElementById('pr-quiz-container').innerHTML = `<div style="text-align:center; padding:30px;"><i class="fas fa-star" style="font-size:3rem; color:#f59e0b; margin-bottom:15px;"></i><h2>ڕاهێنان تەواو بوو!</h2><p style="font-size:1.2rem;">نمرەکەت: <strong>${prScore} لە ${prTotalMarks}</strong></p></div>`;
             document.getElementById('pr-next').style.display = 'none';
             return;
         }
-
         const q = prQuestions[currentPrIndex];
         document.getElementById('pr-quiz-container').innerHTML = buildQuizHTML(q, 'pr');
-        
         document.getElementById('pr-submit').style.display = 'inline-block';
         document.getElementById('pr-submit').disabled = true;
         document.getElementById('pr-next').style.display = 'none';
     }
 
-    // Init
-    window.onload = () => {
-        loadFlashcards();
-    };
-
+    window.onload = () => { loadFlashcards(); };
 </script>
 </body>
 </html>
